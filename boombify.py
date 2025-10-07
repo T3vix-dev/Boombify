@@ -33,6 +33,18 @@ search_entry.pack(side="left", padx=20, pady=10)
 
 search_button = ctk.CTkButton(topbar, text="Search", width=100)
 search_button.pack(side="left", padx=10)
+#Functionality
+def load_songs():
+    """Load songs from 'songs' folder."""
+    songs =[]
+    music_folder ="songs"
+    if not
+    os.path.exists(music_folder):
+        os.makedirs(music_folder)
+        for life in os.listdir(music_folder):
+            if file.endswith(".mp3"):
+                songs.append(file)
+                return songs
 
 # Main content
 main_frame = ctk.CTkFrame(app)
