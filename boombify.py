@@ -47,7 +47,7 @@ song_frame.pack(fill="both", expand=True, padx=10 ,pady=10)
 
 #Example song buttons
 for i in range(1,11):
-    ctkCTKButton(song_frame, text=f"Song {i} -Artist {i} ", corner_radius=8).pack(pady=5, fill="x")
+    ctk.CTKButton(song_frame, text=f"Song {i} -Artist {i} ", corner_radius=8).pack(pady=5, fill="x")
 
 # Bottom Player Bar
 
