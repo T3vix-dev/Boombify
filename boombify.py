@@ -19,4 +19,11 @@ play_button.pack(side="left", padx=20, pady=20)
 pause_button.pack(side="left", padx=10, pady=20)
 bass_button.pack(side="right", padx=20, pady=20)
 
+#Placeholder for song list
+song_frame=ctk.CTKScrollableFrame(main_frame,label_text="All Songs")
+song_frame.pack(fill="both",expand=True,padx=10,pady=10)
+
+#Example song buttons
+for i in range(1,11):
+    ctkCTKButton(song_frame,text=f"Song{i}-Artist{i}",corner_radius=8).pack(pady=5,fill="x")
 
