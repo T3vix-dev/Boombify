@@ -43,11 +43,11 @@ song_list_label.pack(anchor="w", pady=10, padx=10)
 
 #Placeholder for song list
 song_frame = ctk.CTkScrollableFrame(main_frame,label_text="All Songs")
-song_frame.pack(fill="both",expand=True,padx=10,pady=10)
+song_frame.pack(fill="both", expand=True, padx=10 ,pady=10)
 
 #Example song buttons
 for i in range(1,11):
-    ctkCTKButton(song_frame,text=f"Song{i}-Artist{i}",corner_radius=8).pack(pady=5,fill="x")
+    ctkCTKButton(song_frame, text=f"Song {i} -Artist {i} ", corner_radius=8).pack(pady=5, fill="x")
 
 # Bottom Player Bar
 
