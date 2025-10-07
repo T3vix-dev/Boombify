@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 # App setup
 ctk.set_appearance_mode("dark") # Dark mode for modern look
 ctk.set_default_color_theme("green")#Spotify-like green
-app= ctk.CTk()
+app = ctk.CTk()
 app.title("Boombify🎵")
 app.geometry("1100*650")
 
@@ -42,7 +42,7 @@ song_list_label = ctk.CTkLabel(main_frame, text="🎵 Trending Songs", font=ctk.
 song_list_label.pack(anchor="w", pady=10, padx=10)
 
 #Placeholder for song list
-song_frame=ctk.CTkScrollableFrame(main_frame,label_text="All Songs")
+song_frame = ctk.CTkScrollableFrame(main_frame,label_text="All Songs")
 song_frame.pack(fill="both",expand=True,padx=10,pady=10)
 
 #Example song buttons
@@ -54,7 +54,7 @@ for i in range(1,11):
 bottom_bar = ctk.CTkFrame(app, height=80)
 bottom_bar.pack(side"bottom", fill="x")
 play_button = ctk.CTkButton(bottom_bar, text="▶ Play", width=100)
-pause_buttton =ctk.CTkButton(bottom_bar, text="⏸ Pause", width=100)
+pause_buttton = ctk.CTkButton(bottom_bar, text="⏸ Pause", width=100)
 play_button.pack(side="left", padx=20, pady=20)
 pause_button.pack(side="left", padx=10, pady=20)
 bass_button.pack(side="right", padx=20, pady=20)
