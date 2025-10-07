@@ -8,7 +8,7 @@ ctk.set_default_color_theme("green")#Spotify-like green
 app= ctk.CTk()
 app.title("Boombify🎵")
 app.geometry("1100*650")
-# ----------- Topbar (Search) -----------
+#Topbar (Search) 
 topbar = ctk.CTkFrame(app, height=60)
 topbar.pack(side="top", fill="x")
 
