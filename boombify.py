@@ -9,3 +9,14 @@ app= ctk.CTk()
 app.title("Boombify🎵")
 app.geometry("1100*650")
 
+# Bottom Player Bar
+
+bottom_bar = ctk.CTKFrame(app, height=80)
+bottom_bar.pack(side"bottom", fill="x")
+play_button = ctk.CTKButton(bottom_bar, text="▶ Play", width=100)
+pause_buttton =ctk.CTKButton(bottom_bar, text="⏸ Pause", width=100)
+play_button.pack(side="left", padx=20, pady=20)
+pause_button.pack(side="left", padx=10, pady=20)
+bass_button.pack(side="right", padx=20, pady=20)
+
+
