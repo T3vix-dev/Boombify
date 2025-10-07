@@ -8,6 +8,16 @@ ctk.set_default_color_theme("green")#Spotify-like green
 app= ctk.CTk()
 app.title("Boombify🎵")
 app.geometry("1100*650")
+# ----------- Topbar (Search) -----------
+topbar = ctk.CTkFrame(app, height=60)
+topbar.pack(side="top", fill="x")
+
+search_entry = ctk.CTkEntry(topbar, placeholder_text="Search artist or genre...", width=400)
+search_entry.pack(side="left", padx=20, pady=10)
+
+search_button = ctk.CTkButton(topbar, text="Search", width=100)
+search_button.pack(side="left", padx=10)
+
 
 # Bottom Player Bar
 
@@ -26,4 +36,6 @@ song_frame.pack(fill="both",expand=True,padx=10,pady=10)
 #Example song buttons
 for i in range(1,11):
     ctkCTKButton(song_frame,text=f"Song{i}-Artist{i}",corner_radius=8).pack(pady=5,fill="x")
+
+
 
