@@ -133,8 +133,8 @@ volume_slider = ctk.CTkSlider(right_panel, from_=0, to=1, command=set_volume)
 volume_slider.set(0.5)
 volume_slider.pack(padx=20, pady=5, fill="x")
 
-    # Bottom Player bar
-    bottom_bar = ctk.CTkFrame(app, height=80)
+    # --- Bottom Player Bar ---
+bottom_bar = ctk.CTkFrame(app, height=90)
 bottom_bar.pack(side="bottom", fill="x")
 
 play_button = ctk.CTkButton(bottom_bar, text="▶ Play", width=100, command=lambda: play_song(current_song))
@@ -145,9 +145,8 @@ play_button.pack(side="left", padx=20, pady=20)
 pause_button.pack(side="left", padx=10, pady=20)
 stop_button.pack(side="left", padx=10, pady=20)
 
-now_playing_label = ctk.CTkLabel(bottom_bar, text="Now Playing: None", font=ctk.CTkFont(size=14))
-now_playing_label.pack(side="right", padx=20)
-
+now_playing_label = ctk.CTkLabel(bottom_bar, text="🎵 Now Playing: None", font=ctk.CTkFont(size=15))
+now_playing_label.pack(side="right", padx=20)
 # Run app
 app.mainloop()
 
