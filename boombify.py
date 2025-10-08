@@ -106,6 +106,14 @@ main_frame.pack(side="left", fill="both", expand=True, padx=10, pady=(0, 10))
 song_list_label = ctk.CTkLabel(main_frame, text="🎵 All Songs", font=ctk.CTkFont(size=18, weight="bold"))
 song_list_label.pack(anchor="w", pady=10, padx=10)
 
+# Mood dictionary
+mood_songs = {
+    "happy": ["Dance Again – Jennifer Lopez", "Happy – Pharrell Williams", "Good Life – Kanye West"],
+    "sad": ["Someone Like You – Adele", "Let Her Go – Passenger", "Fix You – Coldplay"],
+    "energetic": ["Stronger – Kanye West", "Can’t Hold Us – Macklemore", "Thunderstruck – AC/DC"],
+    "chill": ["Sunflower – Post Malone", "Location – Khalid", "Let’s Chill – Guy"],
+    "romantic": ["Perfect – Ed Sheeran", "All of Me – John Legend", "My Love – Justin Timberlake"]
+}
 # Scrollable Song List
 song_frame = ctk.CTkScrollableFrame(main_frame)
 song_frame.pack(fill="both", expand=True, padx=10, pady=10)
