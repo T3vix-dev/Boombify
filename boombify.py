@@ -27,18 +27,6 @@ app.geometry("1100*650")
         if file.endswith(".mp3"):
             songs.append(file)
     return songs
-        def apply_bass_boost(song_path):
-    """Apply bass boost effect using PyDub."""
-    boosted_path = "temp_boosted.mp3"
-    try:
-        sound = AudioSegment.from_file(song_path)
-        bass = low_pass_filter(sound, 150)  # Keep low frequencies
-        boosted = sound.overlay(bass + 6)  # Mix boosted bass frequencies
-        boosted.export(boosted_path, format="mp3")
-        return boosted_path
-    except Exception as e:
-        print("Bass boost error:", e)
-        return song_path  # Fallback to original if fails
 
 def play_song(song_name=None):
     """Play selected song."""
