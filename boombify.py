@@ -18,47 +18,60 @@ app.geometry("1100*650")
 
 # Functionality
     def load_songs():
-        """Load songs from 'songs' folder."""
-        songs = []
-        music_folder = "songs"
-        if not os.path.exists(music_folder):
-            os.makedirs(music_folder)
-        for file in os.listdir(music_folder):
-            if file.endswith(".mp3"):
-                songs.append(file)
-        return songs
+    """Load songs from 'songs' folder."""
+    songs = []
+    music_folder = "songs"
+    if not os.path.exists(music_folder):
+        os.makedirs(music_folder)
+    for file in os.listdir(music_folder):
+        if file.endswith(".mp3"):
+            songs.append(file)
+    return songs
 
+def play_song(song_name=None):
+    """Play selected song."""
+    global current_song, is_paused
+    try:
+        if song_name:
+            song_path = os.path.join("songs", song_name)
+            pygame.mixer.music.load(song_path)
+            pygame.mixer.music.play()
+            current_song = song_name
+            is_paused = False
+            now_playing_label.configure(text=f"🎵 Now Playing: {song_name}")
+            update_album_art(song_name)
+        elif is_paused:
+            pygame.mixer.music.unpause()
+            is_paused = False
+    except Exception as e:
+        print(f"Error playing song: {e}")
 
-    def play_song(song_name=None):
-        """Play selected song."""
-        global current_song, is_paused
-        try:
-            if song_name:
-                song_path = os.path.join("songs", song_name)
-                pygame.mixer.music.load(song_path)
-                pygame.mixer.music.play()
-                current_song = song_name
-                now_playing_label.configure(text=f"Now Playing: 🎵 {song_name}")
-            elif is_paused:
-                pygame.mixer.music.unpause()
-                is_paused = False
-        except Exception as e:
-            messagebox.showerror("Error", f"Cannot play song: {e}")
+def pause_song():
+    """Pause current song."""
+    global is_paused
+    pygame.mixer.music.pause()
+    is_paused = True
 
+def stop_song():
+    """Stop playback."""
+    pygame.mixer.music.stop()
+    now_playing_label.configure(text="🎵 Now Playing: None")
 
-    def pause_song():
-        """Pause current song."""
-        global is_paused
-        pygame.mixer.music.pause()
-        is_paused = True
+def set_volume(value):
+    """Adjust volume."""
+    volume = float(value)
+    pygame.mixer.music.set_volume(volume)
 
-
-    def stop_song():
-        """Stop playback."""
-        pygame.mixer.music.stop()
-        now_playing_label.configure(text="Now Playing: None")
-
-
+def update_album_art(song_name):
+    """Display album art (placeholder for now)."""
+    try:
+        img = Image.open("album_placeholder.png")  # Add your own image file
+    except:
+        img = Image.new("RGB", (200, 200), color="gray")
+    img = img.resize((180, 180))
+    photo = ImageTk.PhotoImage(img)
+    album_art_label.configure(image=photo)
+    album_art_label.image = photo
 
 
 # Sidebar
