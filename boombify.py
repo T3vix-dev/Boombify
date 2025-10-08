@@ -73,6 +73,11 @@ def load_songs():
     pygame.mixer.music.pause()
     is_paused = True
 
+    def stop_song():
+    """Stop playback."""
+    pygame.mixer.music.stop()
+    now_playing_label.configure(text="Now Playing: None")
+
 # Main content
 main_frame = ctk.CTkFrame(app)
 main_frame.pack(side="top", fill="both", expand=True, padx=10, pady=(0, 10))
