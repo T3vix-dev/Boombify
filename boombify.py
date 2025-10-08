@@ -65,13 +65,13 @@ app.geometry("1100*650")
 sidebar = ctk.CTkFrame(app, width=200, corner_radius=0)
 sidebar.pack(side="left", fill="y")
 
-logo_label = ctk.CTkLabel(sidebar, text="🎧 Boombify", font=ctk.CTkFont(size=20, weight="bold"))
+logo_label = ctk.CTkLabel(sidebar, text="🎧 Boombify", font=ctk.CTkFont(size=22, weight="bold"))
 logo_label.pack(pady=(30, 20))
 
-# Sidebar buttons
 buttons = ["Home", "Playlists", "Genres", "Mood", "Settings"]
 for btn in buttons:
-    ctk.CTkButton(sidebar, text=btn, width=160, corner_radius=10).pack(pady=10)
+    b = ctk.CTkButton(sidebar, text=btn, width=160, corner_radius=10)
+    b.pack(pady=10)
 
 
 
@@ -83,7 +83,7 @@ search_entry = ctk.CTkEntry(topbar, placeholder_text="Search artist or genre..."
 search_entry.pack(side="left", padx=20, pady=10)
 
 search_button = ctk.CTkButton(topbar, text="Search", width=100)
-search_button.pack(side="left", padx=10)
+search_button.pack(side="left", padx=10)
 
 # Main content
 main_frame = ctk.CTkFrame(app)
