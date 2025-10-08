@@ -51,6 +51,7 @@ def load_songs():
             if file.endswith(".mp3"):
                 songs.append(file)
                 return songs
+                
     def play_song(song_name=None):
         """Play selected song."""
         global current_song,is_paused try:
