@@ -114,6 +114,13 @@ mood_songs = {
     "chill": ["Sunflower – Post Malone", "Location – Khalid", "Let’s Chill – Guy"],
     "romantic": ["Perfect – Ed Sheeran", "All of Me – John Legend", "My Love – Justin Timberlake"]
 }
+# Mood Analyzer Section
+mood_label = ctk.CTkLabel(main_frame, text="💭 How are you feeling today?", font=ctk.CTkFont(size=18, weight="bold"))
+mood_label.pack(pady=15)
+
+mood_entry = ctk.CTkEntry(main_frame, placeholder_text="Type your mood (e.g., happy, sad, chill)...", width=400)
+mood_entry.pack(pady=10)
+
 # Scrollable Song List
 song_frame = ctk.CTkScrollableFrame(main_frame)
 song_frame.pack(fill="both", expand=True, padx=10, pady=10)
