@@ -116,6 +116,23 @@ for song in songs:
                                 command=lambda s=song: play_song(s))
     song_button.pack(pady=5, fill="x")
 
+    # Right-side Album Section
+    right_panel = ctk.CTkFrame(app, width=250)
+right_panel.pack(side="right", fill="y", padx=5, pady=5)
+
+album_label = ctk.CTkLabel(right_panel, text="Album Art", font=ctk.CTkFont(size=16, weight="bold"))
+album_label.pack(pady=10)
+
+album_art_label = ctk.CTkLabel(right_panel, text="")
+album_art_label.pack(pady=5)
+
+volume_label = ctk.CTkLabel(right_panel, text="🔊 Volume", font=ctk.CTkFont(size=14))
+volume_label.pack(pady=(30, 5))
+
+volume_slider = ctk.CTkSlider(right_panel, from_=0, to=1, command=set_volume)
+volume_slider.set(0.5)
+volume_slider.pack(padx=20, pady=5, fill="x")
+
     # Bottom Player bar
     bottom_bar = ctk.CTkFrame(app, height=80)
 bottom_bar.pack(side="bottom", fill="x")
