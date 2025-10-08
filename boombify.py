@@ -98,14 +98,16 @@ search_entry.pack(side="left", padx=20, pady=10)
 search_button = ctk.CTkButton(topbar, text="Search", width=100)
 search_button.pack(side="left", padx=10)
 
+
 # Main content
 main_frame = ctk.CTkFrame(app)
-main_frame.pack(side="top", fill="both", expand=True, padx=10, pady=(0, 10))
+main_frame.pack(side="left", fill="both", expand=True, padx=10, pady=(0, 10))
 
-song_list_label = ctk.CTkLabel(main_frame, text="🎵 Your Songs", font=ctk.CTkFont(size=18, weight="bold"))
+song_list_label = ctk.CTkLabel(main_frame, text="🎵 All Songs", font=ctk.CTkFont(size=18, weight="bold"))
 song_list_label.pack(anchor="w", pady=10, padx=10)
 
-song_frame = ctk.CTkScrollableFrame(main_frame, label_text="All Songs")
+# Scrollable Song List
+song_frame = ctk.CTkScrollableFrame(main_frame)
 song_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
 songs = load_songs()
