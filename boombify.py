@@ -121,6 +121,26 @@ mood_label.pack(pady=15)
 mood_entry = ctk.CTkEntry(main_frame, placeholder_text="Type your mood (e.g., happy, sad, chill)...", width=400)
 mood_entry.pack(pady=10)
 
+# Mood analysis function
+def analyze_mood():
+    mood = mood_entry.get().strip().lower()
+    for widget in song_list_frame.winfo_children():
+        widget.destroy()
+
+    if mood in mood_songs:
+        ctk.CTkLabel(song_list_frame, text=f"🎧 Songs for '{mood}' mood:", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=5)
+        for song in mood_songs[mood]:
+            ctk.CTkButton(song_list_frame, text=song, corner_radius=8).pack(pady=4, fill="x")
+    else:
+        messagebox.showinfo("Mood Analyzer", "Sorry, mood not recognized! Try: happy, sad, energetic, chill, romantic.")
+
+mood_button = ctk.CTkButton(main_frame, text="Analyze Mood 🎶", command=analyze_mood, width=200)
+mood_button.pack(pady=10)
+
+# Scrollable frame for displaying mood-based songs
+song_list_frame = ctk.CTkScrollableFrame(main_frame, label_text="Suggested Songs")
+song_list_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
 # Scrollable Song List
 song_frame = ctk.CTkScrollableFrame(main_frame)
 song_frame.pack(fill="both", expand=True, padx=10, pady=10)
