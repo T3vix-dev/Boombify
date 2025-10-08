@@ -1,7 +1,13 @@
 #import all necessary libraries
 import customtkinter as ctk
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image, ImageTk
+import pygame
+import os 
+
+#Initialize pygame mixer
+pygame.mixer.init()
 
 # App setup
 ctk.set_appearance_mode("dark") # Dark mode for modern look
@@ -45,6 +51,11 @@ def load_songs():
             if file.endswith(".mp3"):
                 songs.append(file)
                 return songs
+                def pause_song():
+    """Pause current song."""
+    global is_paused
+    pygame.mixer.music.pause()
+    is_paused = True
 
 # Main content
 main_frame = ctk.CTkFrame(app)
@@ -74,9 +85,5 @@ bass_button.pack(side="right", padx=20, pady=20)
 # Run App
 app.mainloop()
 
-def pause_song():
-    """Pause current song."""
-    global is_paused
-    pygame.mixer.music.pause()
-    is_paused = True
+
 
