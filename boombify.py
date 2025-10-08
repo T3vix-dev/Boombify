@@ -42,7 +42,7 @@ search_button.pack(side="left", padx=10)
 #Functionality
 def load_songs():
     """Load songs from 'songs' folder."""
-    songs =[ ["C:\Users\Natalia\Documents\SONGS"]
+    songs = ["C:\Users\Natalia\Documents\SONGS"]
     music_folder ="songs"
     if not
     os.path.exists(music_folder):
