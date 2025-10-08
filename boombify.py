@@ -51,6 +51,22 @@ def load_songs():
             if file.endswith(".mp3"):
                 songs.append(file)
                 return songs
+    def play_song(song_name=None):
+        """Play selected song."""
+        global current_song,is_paused try:
+            if song_name:
+                song_path=
+        os.path.join("songs", song_name)
+            pygame.mixer.music.load('song_path)
+                pygame.mixer.music.play()
+                current_song= song_name
+                now_playing_label.configure(text=f"Now Playing:🎵
+                {song_name}")
+                    elif is paused:
+            pygame.mixer.music.unpause()
+                is_paused=False
+            except Exception as e:
+             messagebox.showerror("Error",f"Cannot play song:{e}")   
                 def pause_song():
     """Pause current song."""
     global is_paused
