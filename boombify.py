@@ -74,5 +74,9 @@ bass_button.pack(side="right", padx=20, pady=20)
 # Run App
 app.mainloop()
 
-
+def pause_song():
+    """Pause current song."""
+    global is_paused
+    pygame.mixer.music.pause()
+    is_paused = True
 
