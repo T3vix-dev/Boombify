@@ -7,7 +7,7 @@ import pygame
 import os
 import json
 
-# ---------------------- Setup ---------------------- #
+# Setup 
 pygame.mixer.init()
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("green")
@@ -17,8 +17,7 @@ app.title("Boombify 🎧")
 app.geometry("1150x700")
 app.minsize(950, 600)
 
-# ---------------------- Data Stores ---------------------- #
-# Define your songs folder path here 👇
+#  Data Stores
 SONG_FOLDER = r"C:\Users\tevin\OneDrive\Documents\songs"
 
 playlist = []
@@ -39,7 +38,7 @@ SETTINGS_FILE = "boombify_settings.json"
 GENRES = ["Afrobeat", "Pop", "Hip-Hop", "RnB", "Reggae", "Gospel",
           "Country", "Rock", "Jazz", "Amapiano", "EDM", "Classical"]
 
-# ---------------------- Helpers ---------------------- #
+#  Helpers
 def load_settings():
     global settings
     try:
@@ -143,7 +142,7 @@ def get_selected_playlist_content_path():
             return p
     return None
 
-# ---------------------- Audio Controls ---------------------- #
+# Audio Controls 
 current_song = None
 paused = False
 bass_boost_enabled = False
@@ -199,7 +198,7 @@ def toggle_bass_switch():
     global bass_boost_enabled
     bass_boost_enabled = bass_switch.get()
     status_label.configure(text=f"🎚 Bass Boost {'ON' if bass_boost_enabled else 'OFF'}")
-    # NOTE: actual DSP can be added later; this currently toggles state only.
+    
 
 def search_song_topbar():
     q = top_search_entry.get().strip().lower()
@@ -215,7 +214,7 @@ def search_song_topbar():
                 display += f"   [{genre}]"
             home_listbox.insert(tk.END, display)
 
-# ---------------------- Genres View Actions ---------------------- #
+# Genres View Actions
 def on_genre_selected(event=None):
     sel = genre_listbox.curselection()
     if not sel:
@@ -240,7 +239,7 @@ def assign_genre_to_selected_song():
         refresh_genre_song_list()
         status_label.configure(text=f"Assigned genre '{genre}' to {os.path.basename(path)}")
 
-# ---------------------- Playlists View Actions ---------------------- #
+#  Playlists View Actions
 def create_playlist_prompt():
     name = simpledialog.askstring("Create Playlist", "Enter playlist name:")
     if not name:
@@ -313,7 +312,7 @@ def on_playlist_selected(event=None):
         return
     refresh_playlist_contents_view(name)
 
-# ---------------------- Mood View ---------------------- #
+#  Mood View 
 mood_songs = {
     "happy": ["Dance Again – Jennifer Lopez", "Happy – Pharrell Williams", "Good Life – Kanye West"],
     "sad": ["Someone Like You – Adele", "Let Her Go – Passenger", "Fix You – Coldplay"],
@@ -334,7 +333,7 @@ def analyze_mood_user_input():
     else:
         messagebox.showinfo("Mood Analyzer", "Try: happy, sad, energetic, chill, romantic.")
 
-# ---------------------- Settings Actions ---------------------- #
+#  Settings Actions 
 def set_theme(value):
     # value expected: "dark" / "light" / "system"
     settings["theme"] = value
@@ -350,7 +349,7 @@ def set_volume(val):
     except:
         pass
 
-# ---------------------- Views (Frames) ---------------------- #
+#  Views  (GUI) 
 # Sidebar
 sidebar = ctk.CTkFrame(app, width=200, corner_radius=0)
 sidebar.pack(side="left", fill="y")
@@ -413,7 +412,7 @@ bass_switch.grid(row=0, column=3, padx=16)
 assign_genre_btn = ctk.CTkButton(controls, text="Assign Genre", command=assign_genre_to_selected_song)
 assign_genre_btn.grid(row=0, column=4, padx=6)
 
-# --- Genres Frame ---
+# --- Genres Frame
 genres_frame = ctk.CTkFrame(main_frame)
 g_header = ctk.CTkLabel(genres_frame, text="🎷 Genres", font=ctk.CTkFont(size=18, weight="bold"))
 g_header.pack(anchor="nw", pady=(6,8))
@@ -434,7 +433,7 @@ songs_listbox_genre = tk.Listbox(right_songs, bg="#111", fg="#fff", selectbackgr
 songs_listbox_genre.pack(fill="both", expand=True, padx=(0,6))
 ctk.CTkButton(genres_frame, text="Refresh Genres", command=lambda: refresh_genre_song_list()).pack(pady=6)
 
-# --- Playlists Frame ---
+# --- Playlists Frame 
 playlists_frame = ctk.CTkFrame(main_frame)
 pl_header = ctk.CTkLabel(playlists_frame, text="📁 Playlists", font=ctk.CTkFont(size=18, weight="bold"))
 pl_header.pack(anchor="nw", pady=(6,8))
@@ -465,7 +464,7 @@ pl_right_buttons = ctk.CTkFrame(right_pl)
 pl_right_buttons.pack(pady=8)
 ctk.CTkButton(pl_right_buttons, text="Remove Selected", command=remove_selected_from_playlist).grid(row=0, column=0, padx=6)
 
-# --- Mood Frame ---
+# --- Mood Frame 
 mood_frame = ctk.CTkFrame(main_frame)
 m_header = ctk.CTkLabel(mood_frame, text="💭 Mood Analyzer", font=ctk.CTkFont(size=18, weight="bold"))
 m_header.pack(anchor="nw", pady=(6,8))
@@ -476,7 +475,7 @@ ctk.CTkButton(mood_frame, text="Analyze Mood 🎶", command=analyze_mood_user_in
 mood_song_frame = ctk.CTkScrollableFrame(mood_frame, label_text="Suggested Songs")
 mood_song_frame.pack(fill="both", expand=True, padx=8, pady=6)
 
-# --- Settings Frame ---
+# --- Settings Frame 
 settings_frame = ctk.CTkFrame(main_frame)
 s_header = ctk.CTkLabel(settings_frame, text="⚙ Settings", font=ctk.CTkFont(size=18, weight="bold"))
 s_header.pack(anchor="nw", pady=(6,8))
@@ -499,7 +498,7 @@ ctk.CTkLabel(settings_frame, text=f"Version: 1.0").pack(anchor="se", side="botto
 status_label = ctk.CTkLabel(app, text="Welcome to Boombify 🎧", anchor="w")
 status_label.pack(side="bottom", fill="x", pady=5, padx=10)
 
-# ---------------------- View Controller ---------------------- #
+# View Controller 
 frames = {
     "home": home_frame,
     "genres": genres_frame,
@@ -536,7 +535,7 @@ def show_view(name):
 load_settings()
 show_view("home")
 
-# ---------------------- Bindings & Start ---------------------- #
+#  Bindings & Start
 # keyboard shortcuts
 app.bind("<space>", lambda e: play_song_from_home())
 app.bind("<Control-p>", lambda e: add_songs())
