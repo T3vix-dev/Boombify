@@ -18,7 +18,7 @@ app.geometry("1150x700")
 app.minsize(950, 600)
 
 #  Data Stores
-SONG_FOLDER = r"C:\Users\tevin\OneDrive\Documents\songs"
+SONG_FOLDER = r"C:\Users\tevin\OneDrive\Documents\BOOMBIFY\songs"
 
 playlist = []
 for file in os.listdir(SONG_FOLDER):
